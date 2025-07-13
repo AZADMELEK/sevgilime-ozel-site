@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bizim Hikayemiz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      color: #fff;
+      text-align: center;
+    }
+    .hidden {
+      display: none;
+    }
+    .login {
+      padding: 100px 20px;
+    }
+    input[type="password"] {
+      padding: 10px;
+      font-size: 1em;
+      border-radius: 10px;
+      border: none;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      margin-top: 10px;
+      border: none;
+      border-radius: 10px;
+      background-color: #fff;
+      color: #ff5e78;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .content {
+      padding: 40px 20px;
+    }
+    .counter {
+      font-size: 1.5em;
+      margin-top: 20px;
+    }
+    iframe {
+      margin-top: 40px;
+      width: 90%;
+      max-width: 560px;
+      height: 315px;
+      border: none;
+      border-radius: 20px;
+    }
+    .note {
+      margin-top: 40px;
+      background-color: rgba(255, 255, 255, 0.15);
+      padding: 20px;
+      border-radius: 20px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 1.1em;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="login" id="login">
+    <h1>Hoş geldin ❤️</h1>
+    <p>Siteye erişmek için şifreyi gir:</p>
+    <input type="password" id="password" placeholder="Şifre" />
+    <br />
+    <button onclick="checkPassword()">Giriş Yap</button>
+  </div>
+
+  <div class="hidden" id="main">
+    <div class="content">
+      <h1>Seninle Geçen Günlerimiz 💕</h1>
+      <div class="counter" id="counter"></div>
+
+      <iframe src="https://www.youtube.com/embed/dQBl-NEf8ck?autoplay=1&loop=1&playlist=dQBl-NEf8ck" allow="autoplay"></iframe>
+
+      <div class="note">
+        <p>Benim hayatımın anlamı, dünyama renk katanım, biricik bebeğim,<br>
+        Güneşim, parlayan yıldızım, aşık olduğum kadınım, bir tanem,<br><br>
+        Yepyeni bir yaşla hayatın sana tüm umutlarının yeşerdiği, başarılı ve mutlu olacağın bir yıl diliyorum.<br>
+        İlk günden kalan masumiyetin ve iyi kalpli halinle seni çok seviyorum.<br>
+        Hep "iyi ki sen" dedim, hep diyeceğim de. ❤️</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const startDate = new Date("2023-12-20");
+
+    function checkPassword() {
+      const input = document.getElementById("password").value;
+      if (input === "20122023") {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("main").classList.remove("hidden");
+        updateCounter();
+      } else {
+        alert("Şifre yanlış, tekrar dene ❤️");
+      }
+    }
+
+    function updateCounter() {
+      const now = new Date();
+      const diff = now - startDate;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      document.getElementById("counter").innerText = `${days} gündür birlikteyiz 💖`;
+    }
+  </script>
+</body>
+</html>
